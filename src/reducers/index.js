@@ -16,7 +16,6 @@ const reducer = (state = initialState, action ) => {
             })
 
         case(FETCH_SUCCESS):
-            // console.log('reducer test: ', action.payload);
             return({
                 ...state,
                 isLoading: false,

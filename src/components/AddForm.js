@@ -22,9 +22,6 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // if (state.name === "" || state.position === "" || state.nickname === "") {
-        //     setError()
-        // } else addSmurf(state)
 
         if (state.name === "" ) {
             setError('Name must be filled out')
