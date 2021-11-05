@@ -8,7 +8,7 @@ export const ADD_SMURF = 'ADD_SMURF'
 export const SET_ERROR = 'SET_ERROR'
 
 export const fetchSmurfs = () => {
-    console.log('action test');
+    console.log('action mount test');
     return (dispatch) => {
         dispatch(fetchStart());
         axios.get('http://localhost:3333/smurfs')

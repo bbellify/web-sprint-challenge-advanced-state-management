@@ -24,8 +24,7 @@ const AddForm = (props) => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
             setError()
-        }
-        addSmurf(state)
+        } else addSmurf(state)
     }
 
     return(<section>
