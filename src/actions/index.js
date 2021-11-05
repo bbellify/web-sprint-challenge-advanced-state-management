@@ -15,11 +15,11 @@ export const fetchSmurfs = () => {
 
         axios.get('http://localhost:3333/smurfs')
           .then(res=> {
-            console.log('success: ', res.data);
+            // console.log('success: ', res.data);
             dispatch(fetchSuccess(res.data));
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             dispatch(fetchError(`Something went wrong: ${err}`));
         });
     }
@@ -38,11 +38,12 @@ export const fetchError = (err) => {
 }
 
 export const addSmurf = (smurf) => {
+    console.log(smurf);
     return({type:ADD_SMURF, payload:smurf})
 }
 
-export const setError = () => {
-    return({type:SET_ERROR})
+export const setError = (error) => {
+    return({type:SET_ERROR, payload: error})
 }
 
 

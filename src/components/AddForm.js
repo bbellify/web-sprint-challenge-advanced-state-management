@@ -22,9 +22,20 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (state.name === "" || state.position === "" || state.nickname === "") {
-            setError()
-        } else addSmurf(state)
+        // if (state.name === "" || state.position === "" || state.nickname === "") {
+        //     setError()
+        // } else addSmurf(state)
+
+        if (state.name === "" ) {
+            setError('Name must be filled out')
+        } else if (state.position === "") {
+            setError('Position must be filled out')
+        } else if (state.nickname === "") {
+            setError('Nickname must be filled out')
+        } else {
+            addSmurf(state)
+        }
+
     }
 
     return(<section>

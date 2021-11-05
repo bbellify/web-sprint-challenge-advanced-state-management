@@ -27,7 +27,7 @@ const reducer = (state = initialState, action ) => {
             return ({
                 ...state,
                 isLoading:false,
-                error: action.payload
+                errorMessage: `Something went wrong: ${action.payload}`
             })
 
         case(ADD_SMURF):
@@ -40,13 +40,13 @@ const reducer = (state = initialState, action ) => {
                     description: action.payload.description,
                     id: Date.now()
                 }],
-                error: ''
+                errorMessage: ''
             })
 
         case(SET_ERROR):
             return({
                 ...state,
-                error: 'Something went wrong!'
+                error: action.payload
             })
 
         default:
