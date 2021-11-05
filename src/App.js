@@ -14,7 +14,8 @@ import "./App.css";
 class App extends Component {
 
   componentDidMount() {
-    fetchSmurfs()
+    const { fetchSmurfs } = this.props;
+    (fetchSmurfs())
   }
 
   render() {
@@ -30,8 +31,6 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default connect(null, { fetchSmurfs })(App);
 

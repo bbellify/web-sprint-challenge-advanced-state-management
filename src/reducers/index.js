@@ -8,16 +8,19 @@ export const initialState = {
 
 const reducer = (state = initialState, action ) => {
     switch(action.type) {
+
         case(FETCH_START):
             return({
                 ...state,
                 isLoading: true
             })
+
         case(FETCH_SUCCESS):
+            // console.log('reducer test: ', action.payload);
             return({
                 ...state,
                 isLoading: false,
-                smurfs: [...state.smurfs, action.payload]
+                smurfs: action.payload
             })
 
         case(FETCH_ERROR):
@@ -26,23 +29,26 @@ const reducer = (state = initialState, action ) => {
                 isLoading:false,
                 error: action.payload
             })
+
         case(ADD_SMURF):
             return({
                 ...state,
                 smurfs: [...state.smurfs, {
-                    name:action.payload.name,
-                    nickname:action.payload.nickname, 
+                    name: action.payload.name,
+                    nickname: action.payload.nickname, 
                     position: action.payload.position,
                     description: action.payload.description,
                     id: Date.now()
                 }],
                 error: ''
             })
+
         case(SET_ERROR):
             return({
                 ...state,
                 error: 'Something went wrong!'
             })
+
         default:
             return state
 }};   

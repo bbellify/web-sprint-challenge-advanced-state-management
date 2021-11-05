@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 
 import reducer from './reducers';
 
-const store = createStore(reducer, (applyMiddleware(thunk, logger)))
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 const { worker } = require('./mocks/browser');
 worker.start();

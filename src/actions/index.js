@@ -8,17 +8,19 @@ export const ADD_SMURF = 'ADD_SMURF'
 export const SET_ERROR = 'SET_ERROR'
 
 export const fetchSmurfs = () => {
-    console.log('action mount test');
+
     return (dispatch) => {
+
         dispatch(fetchStart());
+
         axios.get('http://localhost:3333/smurfs')
           .then(res=> {
-            console.log(res);
+            console.log('success: ', res.data);
             dispatch(fetchSuccess(res.data));
         })
         .catch(err => {
             console.log(err);
-            dispatch(fetchError(err));
+            dispatch(fetchError(`Something went wrong: ${err}`));
         });
     }
 }
@@ -27,15 +29,15 @@ export const fetchStart = () => {
     return({type:FETCH_START})
 }
 
-export const fetchSuccess = (smurf) => {
-    return ({type: FETCH_SUCCESS, payload: smurf})
+export const fetchSuccess = (smurfs) => {
+    return ({type: FETCH_SUCCESS, payload: smurfs})
 }
 
 export const fetchError = (err) => {
     return({type:FETCH_ERROR, payload: err})
 }
 
-export const addSmurf = smurf => {
+export const addSmurf = (smurf) => {
     return({type:ADD_SMURF, payload:smurf})
 }
 
